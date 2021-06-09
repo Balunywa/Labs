@@ -18,6 +18,7 @@ In this setup example all your APIs are managed without a Virtual Network. All t
 
 ## API Management
 
-In this example we are using the APIM standard SKU 
+In this example we are using the APIM standard SKU and the The developer portal and API gateway will be accessible from the Internet
 
+By default, your API Management service instance is available through *.azure-api.net subdomain (for example, contoso.azure-api.net). You will have to expose the service through your own domain name, such as contos.com
 
