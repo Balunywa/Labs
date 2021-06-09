@@ -89,7 +89,7 @@ Once the gateway is created, the next step is to configure the front end for com
   
 ![image](https://user-images.githubusercontent.com/81341827/121419174-adbb8a80-c939-11eb-9cc5-04c913f9d9d6.png)
 
-## API Management Inboud Policy only allow traffic coming in from the APP-GW Public IP address
+## API Management Inboud Policy to only allow traffic coming in from the APP-GW Public IP address
   
 The ip-filter policy filters (allows/denies) calls from specific IP addresses and/or address ranges. In the following example, the policy only allows requests coming from the application gateway public ip address. https://docs.microsoft.com/en-us/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs
   
