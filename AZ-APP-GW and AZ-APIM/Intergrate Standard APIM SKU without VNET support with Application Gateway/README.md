@@ -70,6 +70,7 @@ Domain Porvider Mappings:
 - backportal.contoso.com - CNAME mapped to the default Dev-APIM FQDN (This will be used as the Devportal backend in APP-GW)
  
 APP-GW Backend Mappings
+  
 - api.azure-api.net - Deafult APIM-GW Proxy FQDN still resolves traffic.
   
 ![image](https://user-images.githubusercontent.com/81341827/121415529-d6da1c00-c935-11eb-81d7-91ae08cd062d.png)
@@ -77,8 +78,8 @@ APP-GW Backend Mappings
 
 - backportal.contoso.com - CNAME mapped Dev-Portal APIM FQDN
   
- ![image](https://user-images.githubusercontent.com/81341827/121415920-3a644980-c936-11eb-9dd5-58be83d264b2.png)
- 
+![image](https://user-images.githubusercontent.com/81341827/121416165-7d262180-c936-11eb-9e2b-cb3d752d6dc8.png)
+
   
 APP-GW Listerner Mappings
 - api.contoso.com - CNAME mapped to APP-GW FQDN.
