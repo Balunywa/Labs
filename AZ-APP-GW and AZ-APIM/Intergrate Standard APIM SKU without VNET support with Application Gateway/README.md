@@ -53,7 +53,8 @@ Custom Domain Mappings/With TLS Certificates fetched from AZ-KeyVault
   - api.contoso.com
   - portal.contoso.com
   
-![image](https://user-images.githubusercontent.com/81341827/121406628-637fdc80-c92c-11eb-9013-ece32a25417c.png)
+![image](https://user-images.githubusercontent.com/81341827/121414342-86ae8a00-c934-11eb-8dfa-c7208170012b.png)
+
 
 ## Application Gatway setup
 In this quickstart, you use the Azure portal to create an application gateway. Make sure your seletc add backed end pulls without target https://docs.microsoft.com/en-us/azure/application-gateway/quick-create-portal
@@ -64,14 +65,17 @@ Once the gateway is created, the next step is to configure the front end for com
 
 Domain Mappings Examples:
 
-- api.contoso.com - CNAME mapped to APP-GW FQDN (This Will redirect all external incoming traffic for the APIM-Proxy to APP-GW for inspecttion)
+- api.contoso.com - CNAME mapped to APP-GW FQDN (This Will redirect all external incoming traffic for the APIM-Proxy to APP-GW for inspection)
 - portal.contoso.com - CNAME mapped to APP-GW FQDN (This will redirect all external incoming traffic for the APIM-Developer portal to APP-GW for inspection)
-- backportal.contoso.com - CNAME mapped to Dev-APIM FQDN (This will be used as the Devportal backend in APP-GW)
+- backportal.contoso.com - CNAME mapped to the default Dev-APIM FQDN (This will be used as the Devportal backend in APP-GW)
  
 APP-GW Backend Mappings
 - api.azure-api.net - Deafult APIM GW Proxy FQDN still resolves traffic. 
-- backportal.contoso.com - CNAME mapped Dev-Portal APIM FQDN
+![image](https://user-images.githubusercontent.com/81341827/121414786-0b010d00-c935-11eb-862c-f49233f99af7.png)
 
+- backportal.contoso.com - CNAME mapped Dev-Portal APIM FQDN
+  
+  
 APP-GW Listerner Mappings
 - api.contoso.com - CNAME mapped to APP-GW FQDN.
 - portal.contoso.com - CNAME mapped to APP-GW FQDN.
