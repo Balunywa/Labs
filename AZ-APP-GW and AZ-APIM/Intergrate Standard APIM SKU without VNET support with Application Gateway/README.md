@@ -72,18 +72,34 @@ Domain Porvider Mappings:
 APP-GW Backend Mappings
   
 - api.azure-api.net - Deafult APIM-GW Proxy FQDN still resolves traffic.
+- backportal.contoso.com - CNAME mapped Dev-Portal APIM FQDN
   
 ![image](https://user-images.githubusercontent.com/81341827/121415529-d6da1c00-c935-11eb-81d7-91ae08cd062d.png)
 
-
-- backportal.contoso.com - CNAME mapped Dev-Portal APIM FQDN
-  
-![image](https://user-images.githubusercontent.com/81341827/121416165-7d262180-c936-11eb-9e2b-cb3d752d6dc8.png)
-
   
 APP-GW Listerner Mappings
+  
 - api.contoso.com - CNAME mapped to APP-GW FQDN.
 - portal.contoso.com - CNAME mapped to APP-GW FQDN.
+  
+![image](https://user-images.githubusercontent.com/81341827/121418288-cbd4bb00-c938-11eb-97c0-8be1ce8c6169.png)
+
+  
+The APP-GW health Probes path for APIM-Porxy will be /status-0123456789abcdef and for the Devloper portal will be a forward /
+  
+![image](https://user-images.githubusercontent.com/81341827/121419174-adbb8a80-c939-11eb-9cc5-04c913f9d9d6.png)
+
+## API Management Inboud Policy only allow traffic coming in from the APP-GW Public IP address
+  
+The ip-filter policy filters (allows/denies) calls from specific IP addresses and/or address ranges. In the following example, the policy only allows requests coming from the application gateway public ip address. https://docs.microsoft.com/en-us/azure/api-management/api-management-access-restriction-policies#RestrictCallerIPs
+  
+![image](https://user-images.githubusercontent.com/81341827/121420195-ca0bf700-c93a-11eb-9ea0-3372255e9ece.png)
+
+
+<ip-filter action="allow | forbid">
+    <address>Your-APP-GW-PublicIP</address>
+    <address-range from="address" to="address" />
+</ip-filter>
 
   
 
