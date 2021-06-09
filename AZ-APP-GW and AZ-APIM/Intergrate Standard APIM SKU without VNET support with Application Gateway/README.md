@@ -40,7 +40,6 @@ Write-Host "PFX password: $pfxPassword"
 ## Save the generated password to use when uploading the certificate to KeyVault, downlaod the certificate from AZ-Cloud-Shell
 ![image](https://user-images.githubusercontent.com/81341827/121402584-113cbc80-c928-11eb-99ef-c803ee5d8a86.png)
 
-
 ## API Management setup
 This quickstart describes the steps for creating a new API Management instance using the Azure portal. In tis example we are using the APIM standard SKU and the The developer portal and API gateway will be accessible from the Internet. Make sure your select the standard SKU for the pricing tier. https://docs.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
 
@@ -51,13 +50,33 @@ Deafult Domain Mappings:
   - <apim-service-name>.developer.azure-api.net
   
 Custom Domain Mappings/With TLS Certificates fetched from AZ-KeyVault
-  - uniapi.taacs.cloud
-  - unibackportal.taacs.cloud
+  - api.contoso.com
+  - portal.contoso.com
   
 ![image](https://user-images.githubusercontent.com/81341827/121406628-637fdc80-c92c-11eb-9013-ece32a25417c.png)
 
 ## Application Gatway setup
+In this quickstart, you use the Azure portal to create an application gateway. Make sure your seletc add backed end pulls without target https://docs.microsoft.com/en-us/azure/application-gateway/quick-create-portal
+  
+## CNAME Mappings
+  
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name wich you can create through the protal, The Application Gateway's DNS name should be used to create a CNAME record which points the APIM proxy host name (e.g. uniapi.taacs.cloud). The use of A-records is not since the VIP may change on restart of gateway.
 
+Domain Mappings Examples:
+
+- api.contoso.com - CNAME mapped to APP-GW FQDN (This Will redirect all external incoming traffic for the APIM-Proxy to APP-GW for inspecttion)
+- portal.contoso.com - CNAME mapped to APP-GW FQDN (This will redirect all external incoming traffic for the APIM-Developer portal to APP-GW for inspection)
+- backportal.contoso.com - CNAME mapped to Dev-APIM FQDN (This will be used as the Devportal backend in APP-GW)
+ 
+APP-GW Backend Mappings
+- api.azure-api.net - Deafult APIM GW Proxy FQDN still resolves traffic. 
+- backportal.contoso.com - CNAME mapped Dev-Portal APIM FQDN
+
+APP-GW Listerner Mappings
+- api.contoso.com - CNAME mapped to APP-GW FQDN.
+- portal.contoso.com - CNAME mapped to APP-GW FQDN.
+
+  
 
 
 
