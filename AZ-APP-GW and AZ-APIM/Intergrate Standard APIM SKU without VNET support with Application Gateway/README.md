@@ -1,6 +1,6 @@
 # Overview
 
-The API Management service supports both Virtual Network support and Non Virtual Network support depending on the SKU type that is selected https://azure.microsoft.com/en-us/pricing/details/api-management/,Virtual Network in internal mode, which makes it accessible only from within the Virtual Network and Non Virtual Network mode which makes it accessible only externally over a public end point. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
+The API Management service supports both Virtual Network support and Non Virtual Network depending on the SKU type that is selected https://azure.microsoft.com/en-us/pricing/details/api-management/, With Virtual Network in internal mode it makes it accessible only from within the Virtual Network and with Non Virtual Network mode it makes it accessible only externally over a public end point. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
 
 Combining API Management provisioned in an Non Virtual Network with the Application Gateway frontend enables the following scenarios:
 
@@ -9,10 +9,15 @@ Use a single API Management resource and APIs defined in API Management availabl
 
 ## Scenario
 
-This article covers how to use a non Virtual Networ single API Management service for external consumers and make it act as a single frontend. You will also see how to expose your APIs for External Consumption using routing functionality available in Application Gateway.
+This article covers how to use a non Virtual Networ single API Management service for external consumers and make it act as a single frontend. You will also see how to expose your APIs for External Consumption using routing functionality available in Application Gateway. 
 
 In this setup example all your APIs are managed without a Virtual Network. All traffic comes in externally from the internet.
 
 ![image](https://user-images.githubusercontent.com/81341827/121389809-c49eb480-c91a-11eb-95ea-04a09fec2803.png)
+
+
+## API Management
+
+In this example we are using the APIM standard SKU 
 
 
