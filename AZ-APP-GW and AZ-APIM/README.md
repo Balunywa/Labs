@@ -1,6 +1,6 @@
 # Intergrate Standard APIM SKU without VNET support with Application Gateway
 
-The API Management service supports both Virtual Network support and Non Virtual Network depending on the SKU type that is selected https://azure.microsoft.com/en-us/pricing/details/api-management/, With Virtual Network in internal mode it makes it accessible only from within the Virtual Network and with Non Virtual Network mode it makes it accessible only externally over a public end point. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
+The API Management service supports both Virtual Network and Non Virtual Network depending on the SKU type that is selected https://azure.microsoft.com/en-us/pricing/details/api-management/, With Virtual Network in internal mode it makes it accessible only from within the Virtual Network and with Non Virtual Network mode it makes it accessible only externally over a public end point. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
 
 Combining API Management provisioned in an Non Virtual Network with the Application Gateway frontend enables the following scenarios:
 
