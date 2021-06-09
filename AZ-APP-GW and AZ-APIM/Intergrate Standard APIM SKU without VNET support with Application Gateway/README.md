@@ -43,7 +43,7 @@ Write-Host "PFX password: $pfxPassword"
 ## API Management setup
 This quickstart describes the steps for creating a new API Management instance using the Azure portal. In tis example we are using the APIM standard SKU and the The developer portal and API gateway will be accessible from the Internet. Make sure your select the standard SKU for the pricing tier. https://docs.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
 
-The created API Management service instance by default is available through *.azure-api.net subdomain (for example, contoso.azure-api.net). You will have to expose the service through your own domain name, such as contoso.com. MY example am using taacs.cloud as my domain
+The created API Management service instance by default is available through *.azure-api.net subdomain (for example, contoso.azure-api.net). You will have to expose the service through your own domain name, such as contoso.com.
 
 Deafult Domain Mappings:
   - <apim-service-name>.azure-api.net
@@ -61,7 +61,7 @@ In this quickstart, you use the Azure portal to create an application gateway. M
   
 ## CNAME Mappings
   
-Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name wich you can create through the protal, The Application Gateway's DNS name should be used to create a CNAME record which points the APIM proxy host name (e.g. uniapi.taacs.cloud). The use of A-records is not since the VIP may change on restart of gateway.
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name wich you can create through the protal, The Application Gateway's DNS name should be used to create a CNAME record which points the APIM proxy host name (e.g.api.contoso.com). The use of A-records is not since the VIP may change on restart of gateway.
 
 Domain Porvider Mappings:
 
