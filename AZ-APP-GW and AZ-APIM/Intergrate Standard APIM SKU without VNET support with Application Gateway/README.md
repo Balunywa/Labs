@@ -63,18 +63,22 @@ In this quickstart, you use the Azure portal to create an application gateway. M
   
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name wich you can create through the protal, The Application Gateway's DNS name should be used to create a CNAME record which points the APIM proxy host name (e.g. uniapi.taacs.cloud). The use of A-records is not since the VIP may change on restart of gateway.
 
-Domain Mappings Examples:
+Domain Porvider Mappings:
 
 - api.contoso.com - CNAME mapped to APP-GW FQDN (This Will redirect all external incoming traffic for the APIM-Proxy to APP-GW for inspection)
 - portal.contoso.com - CNAME mapped to APP-GW FQDN (This will redirect all external incoming traffic for the APIM-Developer portal to APP-GW for inspection)
 - backportal.contoso.com - CNAME mapped to the default Dev-APIM FQDN (This will be used as the Devportal backend in APP-GW)
  
 APP-GW Backend Mappings
-- api.azure-api.net - Deafult APIM GW Proxy FQDN still resolves traffic. 
-![image](https://user-images.githubusercontent.com/81341827/121414786-0b010d00-c935-11eb-862c-f49233f99af7.png)
+- api.azure-api.net - Deafult APIM-GW Proxy FQDN still resolves traffic.
+  
+![image](https://user-images.githubusercontent.com/81341827/121415529-d6da1c00-c935-11eb-81d7-91ae08cd062d.png)
+
 
 - backportal.contoso.com - CNAME mapped Dev-Portal APIM FQDN
   
+ ![image](https://user-images.githubusercontent.com/81341827/121415920-3a644980-c936-11eb-9dd5-58be83d264b2.png)
+ 
   
 APP-GW Listerner Mappings
 - api.contoso.com - CNAME mapped to APP-GW FQDN.
