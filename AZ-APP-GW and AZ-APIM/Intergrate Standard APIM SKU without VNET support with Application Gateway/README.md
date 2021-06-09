@@ -37,8 +37,8 @@ Write-Host "Created an App Service Certificate copy at: $currentDirectory\appser
 Write-Warning "For security reasons, do not store the PFX password. Use it directly from the console as required."
 Write-Host "PFX password: $pfxPassword"
 
-## Save the pass word and downlaod the certificate from AZ-Cloud-Shell
-
+## Save the generated password to use when uploading the certificate to KeyVault, downlaod the certificate from AZ-Cloud-Shell
+![image](https://user-images.githubusercontent.com/81341827/121402584-113cbc80-c928-11eb-99ef-c803ee5d8a86.png)
 
 
 ## API Management setup
