@@ -9,7 +9,7 @@ Use a single API Management resource and APIs defined in API Management availabl
 
 ## Scenario
 
-This article covers how to use a non Virtual Networ single API Management service for external consumers and make it act as a single frontend. You will also see how to expose your APIs for External Consumption using routing functionality available in Application Gateway. 
+This article covers how to use a non Virtual Network single API Management service for external consumers and make it act as a single frontend. You will also see how to expose your APIs for External Consumption using routing functionality available in Application Gateway. 
 
 In this setup example all your APIs are managed without a Virtual Network. All traffic comes in externally from the internet.
 
