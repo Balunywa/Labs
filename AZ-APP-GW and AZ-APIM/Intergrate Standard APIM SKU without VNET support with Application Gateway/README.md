@@ -13,3 +13,6 @@ This article covers how to use a non Virtual Networ single API Management servic
 
 In this setup example all your APIs are managed without a Virtual Network. All traffic comes in externally from the internet.
 
+![image](https://user-images.githubusercontent.com/81341827/121389809-c49eb480-c91a-11eb-95ea-04a09fec2803.png)
+
+
