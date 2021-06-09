@@ -23,7 +23,7 @@ In this setup example all your APIs are managed without a Virtual Network. All t
 - TLS certificates - You can use selfsigned certificates, import your CA singned certificates, in this example a private App Service certificate that’s managed by Azure. You can export copies, and use them with other Azure Services like AZ-APP-GW and AZ-APIM https://docs.microsoft.com/en-us/azure/app-service/configure-ssl-certificate#start-certificate-order
 - Make sure that you are using the latest version of Azure PowerShell. See the installation instructions at Install Azure PowerShell.
 
-## Certificate Generation and Export to KeyVault when using App Service Certificate
+## Use AZ-Cloud Shell for Certificate Generation and Export to KeyVault when using App Service Certificate
 
 $secret = Get-AzKeyVaultSecret -VaultName YourKeyVaultName  -Name YourCertificateSecretName
 $secretValue = $secret.SecretValue | ConvertFrom-SecureString -AsPlainText
