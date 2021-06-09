@@ -45,11 +45,11 @@ This quickstart describes the steps for creating a new API Management instance u
 
 The created API Management service instance by default is available through *.azure-api.net subdomain (for example, contoso.azure-api.net). You will have to expose the service through your own domain name, such as contoso.com.
 
-Deafult Domain Mappings:
+## Deafult Domain Mappings:
   - <apim-service-name>.azure-api.net
   - <apim-service-name>.developer.azure-api.net
   
-Custom Domain Mappings/With TLS Certificates fetched from AZ-KeyVault
+## Custom Domain Mappings/With TLS Certificates fetched from AZ-KeyVault
   - api.contoso.com
   - portal.contoso.com
   
@@ -63,13 +63,13 @@ In this quickstart, you use the Azure portal to create an application gateway. M
   
 Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name wich you can create through the protal, The Application Gateway's DNS name should be used to create a CNAME record which points the APIM proxy host name (e.g.api.contoso.com). The use of A-records is not since the VIP may change on restart of gateway.
 
-Domain Porvider Mappings:
+## Domain Porvider Mappings:
 
 - api.contoso.com - CNAME mapped to APP-GW FQDN (This Will redirect all external incoming traffic for the APIM-Proxy to APP-GW for inspection)
 - portal.contoso.com - CNAME mapped to APP-GW FQDN (This will redirect all external incoming traffic for the APIM-Developer portal to APP-GW for inspection)
 - backportal.contoso.com - CNAME mapped to the default Dev-APIM FQDN (This will be used as the Devportal backend in APP-GW)
  
-APP-GW Backend Mappings
+## APP-GW Backend Mappings
   
 - api.azure-api.net - Deafult APIM-GW Proxy FQDN still resolves traffic.
 - backportal.contoso.com - CNAME mapped Dev-Portal APIM FQDN
@@ -77,7 +77,7 @@ APP-GW Backend Mappings
 ![image](https://user-images.githubusercontent.com/81341827/121415529-d6da1c00-c935-11eb-81d7-91ae08cd062d.png)
 
   
-APP-GW Listerner Mappings
+## APP-GW Listerner Mappings
   
 - api.contoso.com - CNAME mapped to APP-GW FQDN.
 - portal.contoso.com - CNAME mapped to APP-GW FQDN.
@@ -85,7 +85,7 @@ APP-GW Listerner Mappings
 ![image](https://user-images.githubusercontent.com/81341827/121418288-cbd4bb00-c938-11eb-97c0-8be1ce8c6169.png)
 
   
-The APP-GW health Probes path for APIM-Porxy will be /status-0123456789abcdef and for the Devloper portal will be a forward /
+## The APP-GW health Probes path for APIM-Porxy will be /status-0123456789abcdef and for the Devloper portal will be a forward /
   
 ![image](https://user-images.githubusercontent.com/81341827/121419174-adbb8a80-c939-11eb-9cc5-04c913f9d9d6.png)
 
@@ -96,17 +96,13 @@ The ip-filter policy filters (allows/denies) calls from specific IP addresses an
 ![image](https://user-images.githubusercontent.com/81341827/121420195-ca0bf700-c93a-11eb-9ea0-3372255e9ece.png)
 
 
+### Policy statement
+
+```xml
 <ip-filter action="allow | forbid">
-    <address>Your-APP-GW-PublicIP</address>
-    <address-range from="address" to="address" />
+    <address>Your-APP-GW-Public-IP</address>
 </ip-filter>
-
-  
-
-
-
-  
-
+```
   
   
 
