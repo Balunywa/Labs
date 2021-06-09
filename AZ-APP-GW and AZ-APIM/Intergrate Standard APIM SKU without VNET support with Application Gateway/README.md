@@ -42,7 +42,29 @@ Write-Host "PFX password: $pfxPassword"
 
 
 ## API Management setup
-In this example we are using the APIM standard SKU and the The developer portal and API gateway will be accessible from the Internet
+This quickstart describes the steps for creating a new API Management instance using the Azure portal. In tis example we are using the APIM standard SKU and the The developer portal and API gateway will be accessible from the Internet. Make sure your select the standard SKU for the pricing tier. https://docs.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
 
-By default, your API Management service instance is available through *.azure-api.net subdomain (for example, contoso.azure-api.net). You will have to expose the service through your own domain name, such as contos.com
+The created API Management service instance by default is available through *.azure-api.net subdomain (for example, contoso.azure-api.net). You will have to expose the service through your own domain name, such as contoso.com. MY example am using taacs.cloud as my domain
+
+Deafult Domain Mappings:
+  - <apim-service-name>.azure-api.net
+  - <apim-service-name>.developer.azure-api.net
+  
+Custom Domain Mappings/With TLS Certificates fetched from AZ-KeyVault
+  - uniapi.taacs.cloud
+  - unibackportal.taacs.cloud
+  
+![image](https://user-images.githubusercontent.com/81341827/121406628-637fdc80-c92c-11eb-9013-ece32a25417c.png)
+
+## Application Gatway setup
+
+
+
+
+  
+
+  
+  
+
+
 
