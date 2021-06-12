@@ -1,9 +1,11 @@
-# Intergrate Standard APIM SKU without VNET support with Application Gateway
+# Integrate Standard APIM SKU without VNET support with Application Gateway
 
-The API Management service supports both Virtual Network and Non Virtual Network depending on the SKU type that is selected https://azure.microsoft.com/en-us/pricing/details/api-management/, With Virtual Network in internal mode it makes it accessible only from within the Virtual Network and with Non Virtual Network mode it makes it accessible only externally over a public end point. Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
+Cost and VNET integration support are some of the main considerations when selecting the APIM SKU for production use cases. The API Management service supports both Virtual Networks and Non Virtual Networks deployments depending on the SKU type that is selected. Of-course it will cost you more if you went with the premium SKU mainly for the need to support VNET integration. However, you can still go with the standard SKU which does not support VNET integration and protect your APIM’s behind an AZ-App-GW/WAF which in turn reduces your overall cost and securely protects your API’s.
+
+APIM deployed with Virtual Network in internal mode makes it accessible only from within the Virtual Network, and with Non Virtual Network mode it makes it accessible only externally over a public end point, and both of this scenarios are deployed and configured differently if you are using and App-GW/WAF.
+Azure Application Gateway is a PAAS Service, which provides a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offering a Web Application Firewall (WAF).
 
 Combining API Management provisioned in an Non Virtual Network with the Application Gateway frontend enables the following scenarios:
-
 Use a single API Management resource and APIs defined in API Management available for external consumers.
 
 
@@ -41,7 +43,7 @@ Write-Host "PFX password: $pfxPassword"
 ![image](https://user-images.githubusercontent.com/81341827/121402584-113cbc80-c928-11eb-99ef-c803ee5d8a86.png)
 
 ## API Management setup
-This quickstart describes the steps for creating a new API Management instance using the Azure portal. In tis example we are using the APIM standard SKU and the The developer portal and API gateway will be accessible from the Internet. Make sure your select the standard SKU for the pricing tier. https://docs.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
+This quick start describes the steps for creating a new API Management instance using the Azure portal. In this example we are using the APIM standard SKU, and the developer portal and API gateway will be accessible from the Internet. Make sure your select the standard SKU for the pricing tier. https://docs.microsoft.com/en-us/azure/api-management/get-started-create-service-instance
 
 The created API Management service instance by default is available through *.azure-api.net subdomain (for example, contoso.azure-api.net). You will have to expose the service through your own domain name, such as contoso.com.
 
@@ -56,14 +58,14 @@ The created API Management service instance by default is available through *.az
 ![image](https://user-images.githubusercontent.com/81341827/121414342-86ae8a00-c934-11eb-8dfa-c7208170012b.png)
 
 
-## Application Gatway setup
-In this quickstart, you use the Azure portal to create an application gateway. Make sure your seletc add backed end pulls without target https://docs.microsoft.com/en-us/azure/application-gateway/quick-create-portal
+## Application Gateway setup
+In this quick start, you use the Azure portal to create an application gateway. Make sure you select add backed end without target https://docs.microsoft.com/en-us/azure/application-gateway/quick-create-portal
   
 ## CNAME Mappings
   
-Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name wich you can create through the protal, The Application Gateway's DNS name should be used to create a CNAME record which points the APIM proxy host name (e.g.api.contoso.com). The use of A-records is not since the VIP may change on restart of gateway.
+Once the gateway is created, the next step is to configure the front end for communication. When using a public IP, Application Gateway requires a dynamically assigned DNS name which you can create through the portal, The Application Gateway’s DNS name should be used to create a CNAME record which points the APIM proxy host name (e.g.api.contoso.com). The use of A-records is not a good idea, since the VIP may change on restart of gateway
 
-## Domain Porvider Mappings:
+## Domain Provider Mappings:
 
 - api.contoso.com - CNAME mapped to APP-GW FQDN (This Will redirect all external incoming traffic for the APIM-Proxy to APP-GW for inspection)
 - portal.contoso.com - CNAME mapped to APP-GW FQDN (This will redirect all external incoming traffic for the APIM-Developer portal to APP-GW for inspection)
