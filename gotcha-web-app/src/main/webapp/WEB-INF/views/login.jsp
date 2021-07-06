@@ -1,10 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <html>
 <head>
-<title>Welcome to GotCha App</title>
+<title>Yahoo!!</title>
 </head>
 <body>
-Hey There Welcome ${name}
+    <p><font color="red">${errorMessage}</font></p>
+    <form action="/login.do" method="POST">
+        Name : <input name="name" type="text" /> Password : <input name="password" type="password" /> <input type="submit" />
+    </form>
 </body>
 </html>
