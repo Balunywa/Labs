@@ -27,6 +27,10 @@ chmod +xr irazfw-deploy.sh
 ./irazfw-deploy.sh 
 ```
 
+## Access the file shares
+
+![image](https://user-images.githubusercontent.com/81341827/180942210-ed7441ff-9755-4ff9-92ff-08754a403d44.png)
+
 
 ## Clean up resources
 
