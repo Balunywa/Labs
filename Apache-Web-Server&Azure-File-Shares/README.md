@@ -17,9 +17,9 @@ The lab uses a single virtual nework and two subnets one for the Application Gat
 - Storage Account for Azure File Shares
 - Private end point deployed for the Azure Files
 
-### Deploy this solution
+## Deploy this solution
 
-The lab is also available in the above .azcli that you can rename as .sh (shell script) and execute. You can open Azure Cloud Shell (Bash) and run the following commands build the entire lab:
+The lab is also available in the below .azcli that you can run and execute. You can open Azure Cloud Shell (Bash) and run the following commands to build the lab:
 
 ## Create resource group
 
