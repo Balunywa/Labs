@@ -96,32 +96,23 @@ Next, you'll need to set up a private endpoint for your storage account. This gi
 
 1. Select the file share *qsfileshare*. You should see a dialog that says *Connect to this NFS share from Linux*. Under **Network configuration**, select **Review options**
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/connect-from-linux.png" alt-text="Screenshot showing how to configure network and secure transfer settings to connect the N F S share from Linux." lightbox="media/storage-files-quick-create-use-linux/connect-from-linux.png" border="true":::
 
 1. Next, select **Setup a private endpoint**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/configure-network-security.png" alt-text="Screenshot showing network-level security configurations." lightbox="media/storage-files-quick-create-use-linux/configure-network-security.png" border="true":::
-
 1. Select **+ Private endpoint**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/create-private-endpoint.png" alt-text="Screenshot showing how to select + private endpoint to create a new private endpoint.":::
+
 
 1. Leave **Subscription** and **Resource group** the same. Under **Instance**, provide a name and select a region for the new private endpoint. Your private endpoint must be in the same region as your virtual network, so use the same region as you specified when creating the V M. When all the fields are complete, select **Next: Resource**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" alt-text="Screenshot showing how to provide the project and instance details for a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-basics.png" border="true":::
 
 1. Confirm that the **Subscription**, **Resource type** and **Resource** are correct, and select **File** from the **Target sub-resource** drop-down. Then select **Next: Virtual Network**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" alt-text="Screenshot showing how to select the resources that a new private endpoint should connect to." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-resource.png" border="true":::
-
 1. Under **Networking**, select the virtual network associated with your VM and leave the default subnet. Select **Yes** for **Integrate with private DNS zone**. Select the correct subscription and resource group, and then select **Next: Tags**.
-
-    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-networking.png" alt-text="Screenshot showing how to add virtual networking and D N S integration to a new private endpoint." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-networking.png" border="true":::
 
 1. You can optionally apply tags to categorize your resources, such as applying the name **Environment** and the value **Test** to all testing resources. Enter name/value pairs if desired, and then select **Next: Review + create**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" alt-text="Screenshot showing how to add tags to resources in order to categorize them." lightbox="media/storage-files-quick-create-use-linux/private-endpoint-tags.png" border="true":::
-
+ 
 1. Azure will attempt to validate the private endpoint. When validation is complete, select **Create**. You'll see a notification that deployment is in progress. After a few minutes, you should see a notification that deployment is complete.
 
 ### Disable secure transfer
@@ -136,11 +127,8 @@ Because the NFS protocol doesn't support encryption and relies instead on networ
 
 1. Select the NFS file share that you created. Under **Secure transfer setting**, select **Change setting**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" alt-text="Screenshot showing how to change the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" border="true":::
-
+ 
 1. Change the **Secure transfer required** setting to **Disabled**, and select **Save**. The setting change may take up to 30 seconds to take effect.
-
-    :::image type="content" source="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" alt-text="Screenshot showing how to disable the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" border="true":::
 
 ## Connect to your VM
 
@@ -149,8 +137,6 @@ Create an SSH connection with the VM.
 1. Select **Home** and then **Virtual machines**.
 
 1. Select the Linux VM you created for this tutorial and ensure that its status is **Running**. Take note of the VM's public IP address and copy it to your clipboard.
-
-    :::image type="content" source="media/storage-files-quick-create-use-linux/connect-to-vm.png" alt-text="Screenshot showing how to confirm that the V M is running and find its public I P address." lightbox="media/storage-files-quick-create-use-linux/connect-to-vm.png" border="true":::
 
 1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt.
 
@@ -180,7 +166,6 @@ Now that you've created an NFS share, to use it you have to mount it on your Lin
    > [!IMPORTANT]
    > The provided mounting script will mount the NFS share only until the Linux machine is rebooted. To automatically mount the share every time the machine reboots, [add an entry in /etc/fstab](storage-how-to-use-files-linux.md#static-mount-with-etcfstab). For more information, enter the command `man fstab` from the Linux command line.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/mount-nfs-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-quick-create-use-linux/mount-nfs-share.png" border="true":::
 
 1. Select your Linux distribution (Ubuntu).
 
