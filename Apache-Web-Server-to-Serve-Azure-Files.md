@@ -21,7 +21,11 @@ The lab uses a single virtual nework and two subnets 1 for the Application Gatew
 
 The lab is also available in the above .azcli that you can rename as .sh (shell script) and execute. You can open Azure Cloud Shell (Bash) and run the following commands build the entire lab:
 
-
+```bash
+wget -O irazfw-deploy.sh https://raw.githubusercontent.com/dmauser/azure-virtualwan/main/inter-region-azfw/irazfw-deploy.azcli
+chmod +xr irazfw-deploy.sh
+./irazfw-deploy.sh 
+```
 
 
 ## Clean up resources
