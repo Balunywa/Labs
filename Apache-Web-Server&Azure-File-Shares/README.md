@@ -374,7 +374,7 @@ Copy and paste the Application Gateway public IP address or DNS Alias into the a
 
 ## You should be able to acces the file shares now
 
-![image](https://user-images.githubusercontent.com/81341827/180942210-ed7441ff-9755-4ff9-92ff-08754a403d44.png)
+![image](https://user-images.githubusercontent.com/81341827/181094021-bc6bdce1-f318-4b93-a69c-8959a26513d1.png)
 
 
 ## Clean up resources
