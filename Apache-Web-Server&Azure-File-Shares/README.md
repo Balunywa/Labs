@@ -100,8 +100,11 @@ To create a private endpoint for your storage account, you first need to get a r
 
 ```bash
 
-virtualNetworkName="myVNet"
-subnetName="myBackendSubnet"
+storageAccountResourceGroupName="<storage-account-resource-group-name>"
+storageAccountName="<storage-account-name>"
+virtualNetworkResourceGroupName="<vnet-resource-group-name>"
+virtualNetworkName="<vnet-name>"
+subnetName="<vnet-subnet-name>"
 
 # Get storage account ID 
 storageAccount=$(az storage account show \
@@ -273,6 +276,11 @@ for i in `seq 1 2`; do
     --custom-data cloud-init.txt
 done
 ```
+## Connect to a Linux VM
+
+In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH client commonly found in Linux and Windows. You can also use [Azure Cloud Shell](../cloud-shell/overview.md) from any browser.
+ 
+This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see [Azure Bastion Service](../bastion/bastion-overview.md).
 
 ## Create the application gateway
 
@@ -293,6 +301,7 @@ az network application-gateway create \
   --servers "$address1" "$address2" \
   --priority 100
 ```
+
 
 It can take up to 30 minutes for Azure to create the application gateway. After it's created, you can view the following settings in the **Settings** section of the **Application gateway** page:
 
