@@ -88,7 +88,6 @@ Now you're ready to create an NFS file share and provide network-level security 
 
 1. Name the new file share *qsfileshare* and enter "100" for the minimum **Provisioned capacity**, or provision more capacity (up to 102,400 GiB) to get more performance. Select **NFS** protocol, leave **No Root Squash** selected, and select **Create**.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/create-nfs-share.png" alt-text="Screenshot showing how to name the file share and provision capacity to create a new N F S file share." lightbox="media/storage-files-quick-create-use-linux/create-nfs-share.png" border="true":::
 
 ### Set up a private endpoint
 
