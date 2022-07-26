@@ -19,6 +19,10 @@ The lab uses a single virtual nework and two subnets 1 for the Application Gatew
 
 ### Deploy this solution
 
+The lab is also available in the above .azcli that you can rename as .sh (shell script) and execute. You can open Azure Cloud Shell (Bash) and run the following commands build the entire lab:
+
+
+
 
 ## Clean up resources
 
