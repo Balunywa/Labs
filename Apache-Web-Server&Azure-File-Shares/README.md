@@ -278,9 +278,9 @@ done
 ```
 ## Connect to a Linux VM
 
-In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH client commonly found in Linux and Windows. You can also use [Azure Cloud Shell](../cloud-shell/overview.md) from any browser.
- 
-This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see [Azure Bastion Service](../bastion/bastion-overview.md).
+In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH client commonly found in Linux and Windows. You can also use Azure Cloud Shell from any browser.
+
+This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see Azure Bastion Service.
 
 ## Create the application gateway
 
