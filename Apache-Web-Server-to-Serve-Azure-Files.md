@@ -8,7 +8,7 @@ The gola of this lab is to demostrate how to use an Apache web server behind an 
 ## Lab Diagram
 The lab uses a single virtual nework and two subnets 1 for the Application Gateway and the second one for the Apache Web Server and Files Share private end point. Additionally it uses Azure supporting services for backing up the files shares, monitoring and overall security.
 
-![image](https://user-images.githubusercontent.com/81341827/180940499-6a7c957d-0f3e-4a8b-b887-c6ce40ee7783.png)
+![image](https://user-images.githubusercontent.com/81341827/180940823-1d03c9a3-bdb5-425f-8cf5-d37a0c6443d3.png)
 
 ### Components
 
