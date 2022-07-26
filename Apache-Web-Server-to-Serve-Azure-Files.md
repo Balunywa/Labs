@@ -10,6 +10,16 @@ The lab uses a single virtual nework and two subnets 1 for the Application Gatew
 
 ![image](https://user-images.githubusercontent.com/81341827/180935959-f6fe895b-34bb-4aa1-bbfb-d3f1b533d702.png)
 
+### Components
+
+- One Virtual Network and two subnets (one for Application Gatewat and the second VM's and Private end points)
+- Azure Linux VM in avilibality sets
+- Storage Account for Azure File Shares
+- Private end point deployed for the Azure Files
+
+### Deploy this solution
+
+
 ## Getting started
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
