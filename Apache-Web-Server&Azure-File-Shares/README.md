@@ -307,6 +307,7 @@ Mount your Azure file share using the following command. replace storage url wit
 ```
 sudo mount -t nfs your-storage-acct-name.file.core.windows.net:/your-storage-acct-name/your-filesharename /var/www/html/nfs-azure-files -o vers=4,minorversion=1,sec=sys
 ```
+Following instruction in this url to mount using SMB - https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-linux?tabs=smb311
 
 ## Create the application gateway
 
