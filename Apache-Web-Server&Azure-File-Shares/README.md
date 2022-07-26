@@ -96,6 +96,8 @@ az storage share-rm create \
 ```
 ---
 
+> [!Note]  
+> The name of your file share must be all lowercase. For complete details about naming file shares and files, see [Naming and referencing shares, directories, files, and metadata](/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 ## Create the backend servers
 
