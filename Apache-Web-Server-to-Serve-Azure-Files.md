@@ -1,25 +1,9 @@
 
-# Tutorial: Setting up an Apache web server to serve Azure files shares
+# Lab: Setting up an Apache web server to serve Azure files shares
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This tutorial shows you how to use an Apache web server and serve files stored on Azure File Shares. It can be a single VM, or have multiple VM's serving files from Azure Files.
+## Intro: The gola of this lab is to demostrate how to use an Apache web server behind and Application Gateway to serve files stored on Azure File Shares. It can be a single VM,or have multiple VM's serving files from Azure Files.
 
-In this tutorial, you will:
-
-> [!div class="checklist"]
-> * Create a storage account
-> * Deploy a Linux VM
-> * Create an NFS file share
-> * Connect to your VM
-> * install Apache web server 
-> * Mount the file share to your VM
-
-## Applies to
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-
+# Lab Diagram
 ![image](https://user-images.githubusercontent.com/81341827/180932754-c6ef9b24-3860-46bc-8da2-75675bea45a4.png)
 
 
