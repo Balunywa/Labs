@@ -314,24 +314,18 @@ Change directory to the mount point.
 ```
 cd /var/www/html/nfs-azure-files
 ```
-
 Make a subdirectory called testdir.
-
 ```
 sudo mkdir testdir  
 ```
 Change directory so you can create files in the testdir subdirectory.
-
 ```
 cd testdir
 ```
-
 Create a test hello.html file.
-
 ```
 echo "<html><h1>Hello from Azure Files Shares</h1></html>" > hello.html
 ```
-
 ## Create the application gateway
 
 Create an application gateway using `az network application-gateway create`. When you create an application gateway with the Azure CLI, you specify configuration information, such as capacity, SKU, and HTTP settings. Azure then adds the private IP addresses of the network interfaces as servers in the backend pool of the application gateway.
@@ -352,7 +346,6 @@ az network application-gateway create \
   --priority 100
 ```
 
-
 It can take up to 30 minutes for Azure to create the application gateway. After it's created, you can view the following settings in the **Settings** section of the **Application gateway** page:
 
 - **appGatewayBackendPool**: Located on the **Backend pools** page. It specifies the required backend pool.
@@ -369,13 +362,11 @@ After you add the rule, your VM security group will have the following inbound r
 
 ![image](https://user-images.githubusercontent.com/81341827/181082296-99f63936-2c82-4ebb-9372-d62d252d2b78.png)
 
-
 Copy and paste the Application Gateway public IP address or DNS Alias into the address bar of your browser.
 
 ## You should be able to acces the file shares now
 
 ![image](https://user-images.githubusercontent.com/81341827/181094021-bc6bdce1-f318-4b93-a69c-8959a26513d1.png)
-
 
 ## Clean up resources
 
