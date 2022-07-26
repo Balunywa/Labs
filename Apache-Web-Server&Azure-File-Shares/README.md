@@ -63,7 +63,7 @@ To simplify the creation of the storage account and subsequent file share, we wi
 
 ```azurecli
 resourceGroupName="myResourceGroupAG"
-storageAccountName="mystorageacct$RANDOM"
+storageAccountName="mystorageacct"
 region="eastus"
 ```
 
@@ -99,29 +99,27 @@ az storage share-rm create \
 To create a private endpoint for your storage account, you first need to get a reference to your storage account and the virtual network subnet to which you want to add the private endpoint. Replace `<storage-account-resource-group-name>`,  `<storage-account-name>`, `<vnet-resource-group-name>`, `<vnet-name>`, and `<vnet-subnet-name>` below:
 
 ```bash
-storageAccountResourceGroupName="<storage-account-resource-group-name>"
-storageAccountName="<storage-account-name>"
-virtualNetworkResourceGroupName="<vnet-resource-group-name>"
-virtualNetworkName="<vnet-name>"
-subnetName="<vnet-subnet-name>"
+
+virtualNetworkName="myVNet"
+subnetName="myBackendSubnet"
 
 # Get storage account ID 
 storageAccount=$(az storage account show \
-        --resource-group $storageAccountResourceGroupName \
+        --resource-group $resourceGroupName \
         --name $storageAccountName \
         --query "id" | \
     tr -d '"')
 
 # Get virtual network ID
 virtualNetwork=$(az network vnet show \
-        --resource-group $virtualNetworkResourceGroupName \
+        --resource-group $resourceGroupName \
         --name $virtualNetworkName \
         --query "id" | \
     tr -d '"')
 
 # Get subnet ID
 subnet=$(az network vnet subnet show \
-        --resource-group $virtualNetworkResourceGroupName \
+        --resource-group $resourceGroupName \
         --vnet-name $virtualNetworkName \
         --name $subnetName \
         --query "id" | \
@@ -145,7 +143,7 @@ region=$(az network vnet show \
 
 # Create a private endpoint
 privateEndpoint=$(az network private-endpoint create \
-        --resource-group $storageAccountResourceGroupName \
+        --resource-group $resourceGroupName \
         --name "$storageAccountName-PrivateEndpoint" \
         --location $region \
         --subnet $subnet \
@@ -216,7 +214,7 @@ then
             --registration-enabled false \
             --output none
     
-    dnsZoneResourceGroup=$virtualNetworkResourceGroupName
+    dnsZoneResourceGroup=$resourceGroupName
 fi
 ```
 
