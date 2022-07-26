@@ -1,21 +1,11 @@
----
-title: Tutorial - Setting up an Apache web server to serve Azure files shares
-description: You can have Azure VM's running the Apache web server serving files stored on Azure File Shares. 
-It can be a single VM, or have multiple VM's serving files from Azure Files. 
 
-
-
-ms.service: storage
-ms.topic: tutorial
-ms.date: 05/24/2022
-ms.author: kendownie
-ms.subservice: files
-#Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
 
-# Tutorial: Create an NFS Azure file share and mount it on a Linux VM using the Azure Portal
+# Tutorial: Setting up an Apache web server to serve Azure files shares
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This tutorial shows you how to create an Azure file share using the NFS protocol and connect it to a Linux VM.
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This tutorial shows you how to use an Apache web server and serve files stored on Azure File Shares.
+
+It can be a single VM, or have multiple VM's serving files from Azure Files.
 
 In this tutorial, you will:
 
@@ -24,6 +14,7 @@ In this tutorial, you will:
 > * Deploy a Linux VM
 > * Create an NFS file share
 > * Connect to your VM
+> * install Apache web server 
 > * Mount the file share to your VM
 
 ## Applies to
@@ -32,6 +23,9 @@ In this tutorial, you will:
 | Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+
+![image](https://user-images.githubusercontent.com/81341827/180932754-c6ef9b24-3860-46bc-8da2-75675bea45a4.png)
+
 
 ## Getting started
 
