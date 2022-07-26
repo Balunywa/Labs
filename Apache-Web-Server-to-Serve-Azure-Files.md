@@ -1,11 +1,7 @@
 
----
-
 # Tutorial: Setting up an Apache web server to serve Azure files shares
 
-Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This tutorial shows you how to use an Apache web server and serve files stored on Azure File Shares.
-
-It can be a single VM, or have multiple VM's serving files from Azure Files.
+Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) or [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). Both NFS and SMB protocols are supported on Azure virtual machines (VMs) running Linux. This tutorial shows you how to use an Apache web server and serve files stored on Azure File Shares. It can be a single VM, or have multiple VM's serving files from Azure Files.
 
 In this tutorial, you will:
 
@@ -48,10 +44,6 @@ Before you can work with an NFS 4.1 Azure file share, you have to create an Azur
 1. Select **Review + Create** to review your storage account settings and create the account.
 1. When you see the **Validation passed** notification appear, select **Create**. You should see a notification that deployment is in progress.
 
-The following image shows the settings on the **Basics** tab for a new storage account:
-
-:::image type="content" source="media/storage-files-quick-create-use-linux/account-create-portal.png" alt-text="Screenshot showing how to create a storage account in the Azure portal." lightbox="media/storage-files-quick-create-use-linux/account-create-portal.png":::
-
 ## Deploy an Azure VM running Linux
 
 Next, create an Azure VM running Linux to represent the on-premises server. When you create the VM, a virtual network will be created for you. The NFS protocol can only be used from a machine inside of a virtual network.
@@ -62,15 +54,12 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription and resource group are selected. Under **Instance details**, type *myVM* for the **Virtual machine name**, and select the same region as your storage account. Choose the default Ubuntu Server version for your **Image**. Leave the other defaults. The default size and pricing is only shown as an example. Size availability and pricing is dependent on your region and subscription.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-project-instance-details.png" alt-text="Screenshot showing how to enter the project and instance details to create a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-project-instance-details.png" border="true":::
 
 1. Under **Administrator account**, select **SSH public key**. Leave the rest of the defaults.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-admin-account.png" alt-text="Screenshot showing how to configure the administrator account and create an S S H key pair for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-admin-account.png" border="true":::
 
 1. Under **Inbound port rules > Public inbound ports**, choose **Allow selected ports** and then select **SSH (22) and HTTP (80)** from the drop-down.
 
-    :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" alt-text="Screenshot showing how to configure the inbound port rules for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" border="true":::
 
    > [!IMPORTANT]
    > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.  
