@@ -6,10 +6,9 @@
 The gola of this lab is to demostrate how to use an Apache web server behind and Application Gateway to serve files stored on Azure File Shares. It can be a single VM,or have multiple VM's serving files from Azure Files.
 
 ## Lab Diagram
-The lab uses a single virtual nework and two subnets 1 for the Application Gateway and the second one for the Apache Web Server.
+The lab uses a single virtual nework and two subnets 1 for the Application Gateway and the second one for the Apache Web Server. Additionally it uses Azure supporting services for backing up the files shares, monitoring and overall security.
 
-![image](https://user-images.githubusercontent.com/81341827/180932754-c6ef9b24-3860-46bc-8da2-75675bea45a4.png)
-
+![image](https://user-images.githubusercontent.com/81341827/180935959-f6fe895b-34bb-4aa1-bbfb-d3f1b533d702.png)
 
 ## Getting started
 
