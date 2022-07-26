@@ -10,7 +10,7 @@ The lab uses a single virtual nework and two subnets one for the Application Gat
 
 ![image](https://user-images.githubusercontent.com/81341827/180940823-1d03c9a3-bdb5-425f-8cf5-d37a0c6443d3.png)
 
-### Components
+## Components
 
 - One Virtual Network and two subnets (one for Application Gatewat and the second VM's and Private end points)
 - Azure Linux VM in avilibality sets
