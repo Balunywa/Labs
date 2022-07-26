@@ -1,9 +1,11 @@
 
 # Lab: Setting up an Apache web server to serve Azure files shares
 
-## Intro: The gola of this lab is to demostrate how to use an Apache web server behind and Application Gateway to serve files stored on Azure File Shares. It can be a single VM,or have multiple VM's serving files from Azure Files.
+## Intro: 
 
-# Lab Diagram
+The gola of this lab is to demostrate how to use an Apache web server behind and Application Gateway to serve files stored on Azure File Shares. It can be a single VM,or have multiple VM's serving files from Azure Files.
+
+## Lab Diagram
 ![image](https://user-images.githubusercontent.com/81341827/180932754-c6ef9b24-3860-46bc-8da2-75675bea45a4.png)
 
 
