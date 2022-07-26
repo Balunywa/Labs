@@ -276,11 +276,37 @@ for i in `seq 1 2`; do
     --custom-data cloud-init.txt
 done
 ```
-## Connect to a Linux VM
+## Connect to the Linux VM you created above
 
-In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH client commonly found in Linux and Windows. You can also use Azure Cloud Shell from any browser.
+In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH client commonly found in Linux and Windows. You can also use [Azure Cloud Shell](../cloud-shell/overview.md) from any browser.
+ 
+This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see [Azure Bastion Service](../bastion/bastion-overview.md).
 
-This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see Azure Bastion Service.
+## Follow the following setps once logged in
+```
+sudo apt-get update 
+sudo apt-get install nfs-common
+sudo apt-get install apache2
+
+```
+## The status can be check by running the following commands
+
+```
+sudo systemctl status apache2
+```
+## Create mount point
+
+By default, the document root directory is /var/www/html. You will mount your Azure file shares on a subdirectory under the document root.
+
+Create a subdirectory named smb-azure-files or nfs-azure-files or any name of your choice to use as the mount point for your file system, under /var/www/html.
+
+```
+sudo mkdir /var/www/html/nfs-azure-files
+```
+Mount your Azure file share using the following command. replace storage url with the storage url of your file system.
+```
+sudo mount -t nfs your-storage-acct-name.file.core.windows.net:/your-storage-acct-name/your-filesharename /var/www/html/nfs-azure-files -o vers=4,minorversion=1,sec=sys
+```
 
 ## Create the application gateway
 
