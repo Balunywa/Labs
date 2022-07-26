@@ -307,7 +307,30 @@ Mount your Azure file share using the following command. replace storage url wit
 ```
 sudo mount -t nfs your-storage-acct-name.file.core.windows.net:/your-storage-acct-name/your-filesharename /var/www/html/nfs-azure-files -o vers=4,minorversion=1,sec=sys
 ```
-Following instruction in this url to mount using SMB - https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-linux?tabs=smb311
+Create a sample html file or any file type.
+
+Change directory to the mount point.
+
+```
+cd /var/www/html/nfs-azure-files
+```
+
+Make a subdirectory called testdir.
+
+```
+sudo mkdir testdir  
+```
+Change directory so you can create files in the testdir subdirectory.
+
+```
+cd testdir
+```
+
+Create a test hello.html file.
+
+```
+echo "<html><h1>Hello from Azure Files Shares</h1></html>" > hello.html
+```
 
 ## Create the application gateway
 
@@ -338,25 +361,18 @@ It can take up to 30 minutes for Azure to create the application gateway. After 
 - **appGatewayFrontendIP**: Located on the **Frontend IP configurations** page. It assigns *myAGPublicIPAddress* to **appGatewayHttpListener**.
 - **rule1**: Located on the **Rules** page. It specifies the default routing rule that's associated with **appGatewayHttpListener**.
 
-## Test the application gateway
+## Test the application gateway connection to the backend vm's
 
-Although Azure doesn't require an NGINX web server to create the application gateway, you installed it in this quickstart to verify whether Azure successfully created the application gateway. To get the public IP address of the new application gateway, use `az network public-ip show`. 
+Add a rule to your VM security group, to allow HTTP or HTTPS traffic on TCP port 80 or TCP port 443 from anywhere.
 
-```azurecli-interactive
-az network public-ip show \
-  --resource-group myResourceGroupAG \
-  --name myAGPublicIPAddress \
-  --query [ipAddress] \
-  --output tsv
-```
+After you add the rule, your VM security group will have the following inbound rules.
 
-Copy and paste the public IP address into the address bar of your browser.
-​    
-![Test application gateway](./media/quick-create-cli/application-gateway-nginxtest.png)
+![image](https://user-images.githubusercontent.com/81341827/181082296-99f63936-2c82-4ebb-9372-d62d252d2b78.png)
 
-When you refresh the browser, you should see the name of the second VM. This indicates the application gateway was successfully created and can connect with the backend.
 
-## Access the file shares
+Copy and paste the Application Gateway public IP address or DNS Alias into the address bar of your browser.
+
+## You should be able to acces the file shares now
 
 ![image](https://user-images.githubusercontent.com/81341827/180942210-ed7441ff-9755-4ff9-92ff-08754a403d44.png)
 
