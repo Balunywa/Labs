@@ -56,6 +56,46 @@ az network public-ip create \
   --allocation-method Static \
   --sku Standard
 ```
+## Create Storage Account
+To create a storage account using the Azure CLI, we will use the az storage account create command. This command has many options; only the required options are shown. To learn more about the advanced options, see the [`az storage account create` command documentation](/cli/azure/storage/account).
+
+To simplify the creation of the storage account and subsequent file share, we will store several parameters in variables. You may replace the variable contents with whatever values you wish, however note that the storage account name must be globally unique.
+
+```azurecli
+resourceGroupName="myResourceGroupAG"
+storageAccountName="mystorageacct$RANDOM"
+region="eastus"
+```
+
+To create a storage account capable of storing premium Azure file shares, we will use the following command. Note that the `--sku` parameter has changed to include both `Premium` and the desired redundancy level of locally redundant (`LRS`). The `--kind` parameter is `FileStorage` instead of `StorageV2` because premium file shares must be created in a FileStorage storage account instead of a GPv2 storage account.
+
+```azurecli
+az storage account create \
+    --resource-group $resourceGroupName \
+    --name $storageAccountName \
+    --kind FileStorage \
+    --sku Premium_LRS \
+    --output none
+```
+## Create file share
+You can create an Azure file share with the [`az storage share-rm create`](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The following Azure CLI commands assume you have set the variables `$resourceGroupName` and `$storageAccountName` as defined above in the creating a storage account with Azure CLI section.
+
+> [!Important]  
+> For premium file shares, the `--quota` parameter refers to the provisioned size of the file share. The provisioned size of the file share is the amount you will be billed for, regardless of usage. Standard file shares are billed based on usage rather than provisioned size.
+
+```azurecli
+shareName="myshare"
+
+az storage share-rm create \
+    --resource-group $resourceGroupNameAG \
+    --storage-account $storageAccountNameAG \
+    --name $shareName \
+    --access-tier "TransactionOptimized" \
+    --quota 1024 \
+    --output none
+```
+---
+
 
 ## Create the backend servers
 
