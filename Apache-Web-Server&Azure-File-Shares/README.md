@@ -380,9 +380,3 @@ Copy and paste the Application Gateway public IP address or DNS Alias into the a
 ## Clean up resources
 
 When you're done, delete the resource group. Deleting the resource group deletes the storage account, the Azure file share, and any other resources that you deployed inside the resource group.
-
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Learn about using NFS Azure file shares](files-nfs-protocol.md)
