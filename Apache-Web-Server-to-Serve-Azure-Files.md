@@ -1,5 +1,5 @@
 
-# Lab: Setting up an Apache web server to serve Azure files shares
+# Lab: Set up an Apache web server to serve Azure files shares
 
 ## Intro: 
 
