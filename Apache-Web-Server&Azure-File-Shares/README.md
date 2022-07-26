@@ -87,8 +87,8 @@ You can create an Azure file share with the [`az storage share-rm create`](/cli/
 shareName="myshare"
 
 az storage share-rm create \
-    --resource-group $resourceGroupNameAG \
-    --storage-account $storageAccountNameAG \
+    --resource-group $resourceGroupName \
+    --storage-account $storageAccountName \
     --name $shareName \
     --access-tier "TransactionOptimized" \
     --quota 1024 \
