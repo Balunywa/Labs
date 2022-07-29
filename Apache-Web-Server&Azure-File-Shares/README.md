@@ -253,7 +253,7 @@ az network private-dns record-set a add-record \
 
 ## Create the backend servers
 
-A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create one virtual machines to use as backend servers for the application gateway. You also mount the Azure File Shares to the backend VM.
+A backend can have NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. In this example, you create two virtual machines to use as backend servers for the application gateway. You also mount the Azure File Shares to the backend VM.
 
 #### Create one virtual machines
 
