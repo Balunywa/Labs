@@ -6,7 +6,7 @@ This example scenarios are applicable to any industry that needs to deploy resil
 
 When designing your Azure Network to be resilient, you must understand your availability and disaster recovery requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the Network highly available and resilient to failuer?
 
-High availability and disaster recovery follow some of the same best practices and the strategies can be applied at all levels of the architecture. Some mitigations are more tactical and others more strategic in nature for example:
+High availability and disaster recovery follow some of the same best practices but with different strategies being applied at all levels of the architecture. Some mitigations are more tactical and others more strategic in nature for example:
 
 - Retrying a remote call after a transient network failure.
 - Failing over the entire network to a secondary region.
