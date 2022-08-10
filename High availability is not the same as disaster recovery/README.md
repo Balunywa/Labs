@@ -61,10 +61,14 @@ Use Azure Firewall Manager to centrally manage Azure Firewalls across multiple s
 
 ### BCDR - Multi Region Failover
 
-I have already called out that DR is focused on deploying individually separate and distinct network components to multiple locations, so that you can fail over the entire network if necessary. To safeguard against disasters that impact an entire peering location, your disaster recovery plans should include geo-redundant ExpressRoute circuits, S2S VPN Gateways or a mixture of both this is shown in both scenario #1 and scenario #2
+I have already called out that DR is focused on deploying individually separate and distinct network components to multiple locations, so that you can fail over the entire network if necessary. In order safeguard against disasters that impact an entire peering location or IPsec connection, your disaster recovery plans should include geo-redundant ExpressRoute circuits, S2S IPsec tunnels or a mixture of both, this is shown in the logical layouts for both scenarios #1 and  #2
 
 ExpressRoute supports Bidirectional Forwarding Detection (BFD) both over private and Microsoft peering. When you enable BFD over ExpressRoute, you can speed up the link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers that your ExpressRoute circuit gets configured (CE/PE). This document walks you through the need for BFD, and how to enable BFD over ExpressRoute. [https://docs.microsoft.com/en-us/azure/expressroute/expressroute-bfd]
 
 ### Azure Front Door 
 
 Front Door Is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, caching, etc. Use Azure Front Door to provide active/passive or active/active fail over scenarios for your applications if a regional outage affects the primary region, you can use Front Door to fail over to the secondary region.
+
+## Next steps
+
+
