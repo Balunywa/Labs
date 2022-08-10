@@ -32,7 +32,7 @@ Architecting HA and DR into your network ensures your workloads are available an
 
 ## Chose the right primary and secondary Azure regions
 
-The best practice is to select regions that are closer to your on-premises locations since the distance the data has to travel will have a direct impact on your overall network latency. Use two regions to achieve HA & DR. One is the primary region. The other region is the failover secondary region.  
+The best practice is to select regions that are closer to your on-premises locations since the distance the data has to travel will have a direct impact on your overall network latency. Use two regions to achieve DR one is the primary region. The other region is the failover secondary region.  
 
 ## Resource groups
 
