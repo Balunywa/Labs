@@ -1,6 +1,34 @@
-# Lab: Set up an Apache web server to serve Azure files shares
+# High availibility is not the same as disaster recovery
 
-## Intro: 
+## Intro:
+This example scenario is applicable to any industry that needs to deploy resilient Azure Networking built for high availability and disaster recovery. In this scenario, we look at Azure classic Hub & Spoke, Azure Virtual WAN Hub & Spoke and Azure Front in a two region logical layout.
+
+Both availability and disaster recovery rely on some of the same best practices such as:
+
+Monitoring for failures
+Deploying to multiple locations
+Automatic failover. 
+
+Its important to note that, whereas Availability focuses on components of the workload, disaster recovery focuses on discrete copies of the entire workload. Hence DR (Disaster Recovery) has different objectives from HA (High Availability), measuring time to recovery after the larger scale events that qualify as disasters. You should first ensure your workload meets your availability objectives, as a highly available architecture will enable you to meet customers’ needs in the event of availability impacting events. Your disaster recovery strategy requires different approaches than those for availability, focusing on deploying discrete systems to multiple locations, so that you can fail over the entire workload if necessary.
+
+## HA & DR Virtual Network Hub & Spoke Express Route With and Azure Front Door
+
+![image](https://user-images.githubusercontent.com/81341827/183797963-a862c0ee-4533-49d7-aad5-fdb08fbe3461.png)
+
+
+
+## HA & DR Virtual Network Hub & Spoke Azure Express Route, S2S VPN and Azure Front Door
+
+![image](https://user-images.githubusercontent.com/81341827/183798668-7cd4d1f6-8eb1-4f57-a778-8e688f669f30.png)
+
+
+Both availability and disaster recovery rely on some of the same best practices such as:
+
+Monitoring for failures
+Deploying to multiple locations
+Automatic failover. 
+
+Its important to note that, whereas Availability focuses on components of the workload, disaster recovery focuses on discrete copies of the entire workload. Hence DR (Disaster Recovery) has different objectives from HA (High Availability), measuring time to recovery after the larger scale events that qualify as disasters. You should first ensure your workload meets your availability objectives, as a highly available architecture will enable you to meet customers’ needs in the event of availability impacting events. Your disaster recovery strategy requires different approaches than those for availability, focusing on deploying discrete systems to multiple locations, so that you can fail over the entire workload if necessary.
 
 The goal of this lab is to demostrate how to use an Apache web server behind an Application Gateway to serve files stored on Azure File Shares. It can be a single VM,or multiple VM's serving files from Azure Files.
 
