@@ -2,9 +2,9 @@
 
 ## Intro:
 
-This example scenarios are applicable to any industry that needs to deploy resilient Azure Networking built for high availability and disaster recovery. In this scenario, we look at a two region logical architecture for a classic Azure virtual network Hub & Spoke and Azure Front Door.
+This example scenarios are applicable to any industry that needs to deploy resilient Azure networking built for high availability and disaster recovery. In this scenario, we look at a two region logical architecture layout for a classic Azure virtual network Hub & Spoke and Azure Front Door.
 
-When designing your Azure Network to be resilient, you must understand your availability and disaster recovery requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the Network highly available and resilient to failuer?
+When designing your Azure network to be resilient, you must understand your availability and disaster recovery requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the Network highly available and resilient to failuer?
 
 High availability and disaster recovery follow some of the same best practices but with different strategies being applied at all levels of the architecture. Some mitigations are more tactical and others more strategic in nature for example:
 
@@ -12,9 +12,9 @@ High availability and disaster recovery follow some of the same best practices b
 - Automatically failing over the entire network to a secondary region.
 - Having the right monitoring and diagnostics to to detect failures when they happen, and to find the root causes
 
-It's rare for an entire region to experience a disruption, but transient problems such as network congestion are more common so target these issues first. With that said your availability will focus on components of the workload, and disaster recovery will focus on discrete copies of the entire workload. Hence DR (Disaster Recovery) has different objectives from HA (High Availability). So your DR design and strategy will require a different apporach than those for HA, focused  on deploying individually separate and distinct network components to multiple locations, so that you can fail over the entire network if necessary to a different region ensuring your workload meets your availability objectives, and commitments you make to your customers. 
+It's rare for an entire region to experience a disruption, but transient problems such as network congestion are more common so target these issues first. With that said your availability will focus on components of the workload, and disaster recovery will focus on discrete copies of the entire network. Hence DR (Disaster Recovery) has different objectives from HA (High Availability). So your DR design and strategy will require a different apporach than those for HA. DR is focused on deploying individually separate and distinct network components to multiple locations, so that you can fail over the entire network if necessary to a different region ensuring your workload meets your availability objectives, and commitments you make to your customers. 
 
-Architecting HA and DR into your Network ensures your workloads are available and can recover from failures at any scale. 
+Architecting HA and DR into your network ensures your workloads are available and can recover from failures at any scale. 
 
 ## HA & DR Virtual Network Hub & Spoke Express Route With and Azure Front Door
 
