@@ -18,17 +18,17 @@ Architecting HA and DR into your network ensures your workloads are available an
 
 ## Architecture
 
-## HA & DR Virtual Network Hub & Spoke Express Route and Azure Front Door
+## HA & DR Virtual Network Hub & Spoke Express Route, Azure Firewall and Azure Front Door
 
 ![image](https://user-images.githubusercontent.com/81341827/183797963-a862c0ee-4533-49d7-aad5-fdb08fbe3461.png)
 
 
-## HA & DR Virtual Network Hub & Spoke Azure Express Route, S2S VPN and Azure Front Door
+## HA & DR Virtual Network Hub & Spoke Azure Express Route, S2S VPN, Azure Firewall and Azure Front Door
 
 ![image](https://user-images.githubusercontent.com/81341827/183798668-7cd4d1f6-8eb1-4f57-a778-8e688f669f30.png)
 
 
-## Components
+## The architecture has the following components
 
 ## Chose the right primary and secondary Azure regions
 
@@ -36,12 +36,14 @@ Agree on your primary and secondary regions the best practice is to select regio
 
 ## Regional HA | Availability Zone aware ExpressRoute and S2S VPN virtual network gateways
 
-An Availability Zone in an Azure region is a combination of a fault domain and an update domain. If you opt for zone-redundant Azure IaaS deployment, you may also want to configure zone-redundant virtual network gateways that terminate ExpressRoute private peering and S2S VPN connection. Configure zone-redundant virtual network gateway in both your primary and secondary regions. 
+An Availability Zone in an Azure region is a combination of a fault domains and an update domains. Opt for zone-redundant virtual network gateways that terminate ExpressRoute private peering and S2S VPN connection. Configure zone-redundant virtual network gateway in both your primary and secondary regions.
 
 For high availability, it's essential to maintain the redundancy of the ExpressRoute circuit and S2S VPN throughout the end-to-end network. In other words, you need to maintain redundancy within your on-premises network, and shouldn't compromise redundancy within your service provider network. Maintaining redundancy at the minimum implies avoiding single point of network failures. Having redundant power and cooling for the network devices will further improve the high availability.
+
+## Regional HA - Azure Firewall
+
+## BCDR - Multi Region Failover
 
 ## Azure Front Door 
 
 Front Door Is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, caching, etc. Use Azure Front Door to provide active/passive or active/active fail over scenarios for your applications if a regional outage affects the primary region, you can use Front Door to fail over to the secondary region.
-
-
