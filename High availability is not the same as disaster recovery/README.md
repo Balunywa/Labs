@@ -76,6 +76,8 @@ To learn more about Azure networking HA and DR see:
 - https://docs.microsoft.com/en-us/azure/expressroute/designing-for-high-availability-with-expressroute
 - https://docs.microsoft.com/en-us/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering
 - https://docs.microsoft.com/en-us/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering
+- https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-activeactive-rm-powershell
+- https://docs.microsoft.com/en-us/azure/firewall-manager/policy-overview
 
 
 
