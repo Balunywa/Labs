@@ -2,19 +2,19 @@
 
 ## Intro:
 
-This example scenarios are applicable to any industry that needs to deploy resilient Azure Networking built for high availability and disaster recovery. In this scenario, we look at Azure classic Hub & Spoke and Azure Front in a two region logical layout.
+This example scenarios are applicable to any industry that needs to deploy resilient Azure Networking built for high availability and disaster recovery. In this scenario, we look at a two region logical architecture for a classic Azure virtual network Hub & Spoke and Azure Front Door.
 
 When designing your Azure Network to be resilient, you must understand your availability and disaster recovery requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the Network highly available and resilient to failuer?
 
 High availability and disaster recovery follow some of the same best practices but with different strategies being applied at all levels of the architecture. Some mitigations are more tactical and others more strategic in nature for example:
 
 - Retrying a remote call after a transient network failure.
-- Failing over the entire network to a secondary region.
+- Automatically failing over the entire network to a secondary region.
 - Having the right monitoring and diagnostics to to detect failures when they happen, and to find the root causes
- 
-It's rare for an entire region to experience a disruption, but transient problems such as network congestion are more common so target these issues first, whereas availability focuses on components of the workload, disaster recovery focuses on discrete copies of the entire workload. Hence DR (Disaster Recovery) has different objectives from HA (High Availability), measuring time to recovery after the larger scale events that qualify as disasters. 
 
-You should ensure your workload meets your availability objectives, and commitments you make to your customers. Architecting HA and DR into your Network ensures your workloads are available and can recover from failures at any scale. So your DR design and strategy will require a different apporach than those for HA, focused  on deploying individually separate and distinct network components to multiple locations, so that you can fail over the entire network if necessary to a different region. 
+It's rare for an entire region to experience a disruption, but transient problems such as network congestion are more common so target these issues first. With that said your availability will focus on components of the workload, and disaster recovery will focus on discrete copies of the entire workload. Hence DR (Disaster Recovery) has different objectives from HA (High Availability). So your DR design and strategy will require a different apporach than those for HA, focused  on deploying individually separate and distinct network components to multiple locations, so that you can fail over the entire network if necessary to a different region ensuring your workload meets your availability objectives, and commitments you make to your customers. 
+
+Architecting HA and DR into your Network ensures your workloads are available and can recover from failures at any scale. 
 
 ## HA & DR Virtual Network Hub & Spoke Express Route With and Azure Front Door
 
@@ -26,16 +26,6 @@ You should ensure your workload meets your availability objectives, and commitme
 
 ![image](https://user-images.githubusercontent.com/81341827/183798668-7cd4d1f6-8eb1-4f57-a778-8e688f669f30.png)
 
-
-Both availability and disaster recovery rely on some of the same best practices such as:
-
-Monitoring for failures
-Deploying to multiple locations
-Automatic failover. 
-
-Its important to note that, whereas Availability focuses on components of the workload, disaster recovery focuses on discrete copies of the entire workload. Hence DR (Disaster Recovery) has different objectives from HA (High Availability), measuring time to recovery after the larger scale events that qualify as disasters. You should first ensure your workload meets your availability objectives, as a highly available architecture will enable you to meet customers’ needs in the event of availability impacting events. Your disaster recovery strategy requires different approaches than those for availability, focusing on deploying discrete systems to multiple locations, so that you can fail over the entire workload if necessary.
-
-The goal of this lab is to demostrate how to use an Apache web server behind an Application Gateway to serve files stored on Azure File Shares. It can be a single VM,or multiple VM's serving files from Azure Files.
 
 ## Lab Diagram
 The lab uses a single virtual nework and two subnets one for the Application Gateway and the second one for the Apache Web Server and Files Share private end point. Additionally it uses Azure supporting services for backing up the files shares, monitoring and overall security.
