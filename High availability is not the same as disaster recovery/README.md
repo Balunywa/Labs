@@ -30,19 +30,19 @@ Architecting HA and DR into your network ensures your workloads are available an
 
 ## The architecture components and considerations
 
-## Chose the right primary and secondary Azure regions
+### Chose the right primary and secondary Azure regions
 
 The best practice is to select regions that are closer to your on-premises locations since the distance the data has to travel will have a direct impact on your overall network latency. Use two regions to achieve DR one is the primary region. The other region is the failover secondary region.  
 
-## Resource groups
+### Resource groups
 
 Create separate resource groups for the primary region and secondary region. This gives you the flexibility to manage each region as a single collection of resources. For example, you could redeploy one region, without taking down the other one.
 
-## Virtual Networks
+### Virtual Networks
 
 Create a separate virtual network for each region. Make sure the address spaces do not overlap.
 
-## Regional HA | Availability Zone aware ExpressRoute and S2S VPN virtual network gateways
+### Regional HA | Availability Zone aware ExpressRoute and S2S VPN virtual network gateways
 
 An Availability Zone in an Azure region is a combination of a fault domains and an update domains. Opt for zone-redundant virtual network gateways that terminate ExpressRoute private peering and S2S VPN connection. Configure zone-redundant virtual network gateway in both your primary and secondary regions.
 
@@ -51,10 +51,10 @@ For high availability, it's essential to maintain the redundancy of the ExpressR
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
 You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This connection applies only to virtual networks linked to the Azure private peering path. There's no VPN-based failover solution for services accessible through Azure Microsoft peering. The ExpressRoute circuit is always the primary link. Data flows through the Site-to-Site VPN path only if the ExpressRoute circuit fails. To avoid asymmetrical routing, your local network configuration should also prefer the ExpressRoute circuit over the Site-to-Site VPN. You can prefer the ExpressRoute path by setting higher local preference for the routes received the ExpressRoute. 
 
-## Regional HA - Azure Firewall
+### Regional HA - Azure Firewall
 
-## BCDR - Multi Region Failover
+### BCDR - Multi Region Failover
 
-## Azure Front Door 
+### Azure Front Door 
 
 Front Door Is an application delivery network that provides global load balancing and site acceleration service for web applications. It offers Layer 7 capabilities for your application like SSL offload, path-based routing, fast failover, caching, etc. Use Azure Front Door to provide active/passive or active/active fail over scenarios for your applications if a regional outage affects the primary region, you can use Front Door to fail over to the secondary region.
