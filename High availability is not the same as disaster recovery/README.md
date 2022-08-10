@@ -28,7 +28,7 @@ Architecting HA and DR into your network ensures your workloads are available an
 ![image](https://user-images.githubusercontent.com/81341827/183798668-7cd4d1f6-8eb1-4f57-a778-8e688f669f30.png)
 
 
-## The architecture components and considerations
+## Architecture components, configuration designs and considerations
 
 ### Chose the right primary and secondary Azure regions
 
@@ -52,6 +52,7 @@ For high availability, it's essential to maintain the redundancy of the ExpressR
 You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This connection applies only to virtual networks linked to the Azure private peering path. There's no VPN-based failover solution for services accessible through Azure Microsoft peering. The ExpressRoute circuit is always the primary link. Data flows through the Site-to-Site VPN path only if the ExpressRoute circuit fails. To avoid asymmetrical routing, your local network configuration should also prefer the ExpressRoute circuit over the Site-to-Site VPN. You can prefer the ExpressRoute path by setting higher local preference for the routes received the ExpressRoute. 
 
 ### Regional HA - Azure Firewall
+
 
 ### BCDR - Multi Region Failover
 
