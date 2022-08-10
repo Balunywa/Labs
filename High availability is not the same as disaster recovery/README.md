@@ -16,7 +16,7 @@ It's rare for an entire region to experience a disruption, but transient problem
 
 Architecting HA and DR into your network ensures your workloads are available and can recover from failures at any scale. 
 
-## Architecture
+## Architecture diagrams
 
 ## HA & DR Virtual Network Hub & Spoke Express Route, Azure Firewall and Azure Front Door
 
@@ -28,11 +28,19 @@ Architecting HA and DR into your network ensures your workloads are available an
 ![image](https://user-images.githubusercontent.com/81341827/183798668-7cd4d1f6-8eb1-4f57-a778-8e688f669f30.png)
 
 
-## The architecture has the following components
+## The architecture components and considerations
 
 ## Chose the right primary and secondary Azure regions
 
-Agree on your primary and secondary regions the best practice is to select regions that are closer to your on-premises locations since the distance the data has to travel will have a direct impact on your overall network latency.
+The best practice is to select regions that are closer to your on-premises locations since the distance the data has to travel will have a direct impact on your overall network latency. Use two regions to achieve HA & DR. One is the primary region. The other region is the failover secondary region.  
+
+## Resource groups
+
+Create separate resource groups for the primary region and secondary region. This gives you the flexibility to manage each region as a single collection of resources. For example, you could redeploy one region, without taking down the other one.
+
+## Virtual Networks
+
+Create a separate virtual network for each region. Make sure the address spaces do not overlap.
 
 ## Regional HA | Availability Zone aware ExpressRoute and S2S VPN virtual network gateways
 
