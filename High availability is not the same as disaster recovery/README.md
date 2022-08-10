@@ -54,8 +54,16 @@ You can configure a Site-to-Site VPN connection as a backup for ExpressRoute thi
 
 ### Regional HA - Azure Firewall
 
+Azure Firewall is a cloud-native and intelligent network firewall security service that provides the best of breed threat protection for your cloud workloads running in Azure. It's a fully stateful, firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection using rules that define allowed and denied network traffic. 
+
+Use Azure Firewall Manager to centrally manage Azure Firewalls across multiple subscriptions in different regions. Firewall Manager leverages firewall policy to apply a common set of network/application rules and configuration to the firewalls in your tenant. 
+
 
 ### BCDR - Multi Region Failover
+
+I have already called out that DR is focused on deploying individually separate and distinct network components to multiple locations, so that you can fail over the entire network if necessary. To safeguard against disasters that impact an entire peering location, your disaster recovery plans should include geo-redundant ExpressRoute circuits, S2S VPN Gateways or a mixture of both this is shown in both scenario #1 and scenario #2
+
+ExpressRoute supports Bidirectional Forwarding Detection (BFD) both over private and Microsoft peering. When you enable BFD over ExpressRoute, you can speed up the link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers that your ExpressRoute circuit gets configured (CE/PE). This document walks you through the need for BFD, and how to enable BFD over ExpressRoute. [https://docs.microsoft.com/en-us/azure/expressroute/expressroute-bfd]
 
 ### Azure Front Door 
 
