@@ -1,15 +1,20 @@
 # High availibility is not the same as disaster recovery
 
 ## Intro:
-This example scenario is applicable to any industry that needs to deploy resilient Azure Networking built for high availability and disaster recovery. In this scenario, we look at Azure classic Hub & Spoke, Azure Virtual WAN Hub & Spoke and Azure Front in a two region logical layout.
 
-Both availability and disaster recovery rely on some of the same best practices such as:
+This example scenarios are applicable to any industry that needs to deploy resilient Azure Networking built for high availability and disaster recovery. In this scenario, we look at Azure classic Hub & Spoke and Azure Front in a two region logical layout.
 
-Monitoring for failures
-Deploying to multiple locations
-Automatic failover. 
+When designing your Azure Network to be resilient, you must understand your availability and disaster recovery requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the Network highly available and resilient to failuer?
 
-Its important to note that, whereas Availability focuses on components of the workload, disaster recovery focuses on discrete copies of the entire workload. Hence DR (Disaster Recovery) has different objectives from HA (High Availability), measuring time to recovery after the larger scale events that qualify as disasters. You should first ensure your workload meets your availability objectives, as a highly available architecture will enable you to meet customers’ needs in the event of availability impacting events. Your disaster recovery strategy requires different approaches than those for availability, focusing on deploying discrete systems to multiple locations, so that you can fail over the entire workload if necessary.
+High availability and disaster recovery follow some of the same best practices and the strategies can be applied at all levels of the architecture. Some mitigations are more tactical and others more strategic in nature for example:
+
+- Retrying a remote call after a transient network failure.
+- Failing over the entire network to a secondary region.
+- Having the right monitoring and diagnostics to to detect failures when they happen, and to find the root causes
+ 
+It's rare for an entire region to experience a disruption, but transient problems such as network congestion are more common so target these issues first, whereas availability focuses on components of the workload, disaster recovery focuses on discrete copies of the entire workload. Hence DR (Disaster Recovery) has different objectives from HA (High Availability), measuring time to recovery after the larger scale events that qualify as disasters. 
+
+You should ensure your workload meets your availability objectives, and commitments you make to your customers. Architecting HA and DR into your Network ensures your workloads are available and can recover from failures at any scale. So your DR design and strategy will require a different apporach than those for HA, focused  on deploying individually separate and distinct network components to multiple locations, so that you can fail over the entire network if necessary to a different region. 
 
 ## HA & DR Virtual Network Hub & Spoke Express Route With and Azure Front Door
 
@@ -371,29 +376,7 @@ az network application-gateway create \
   --subnet myAGSubnet \
   --servers "$address1" "$address2" \
   --priority 100
-```
 
-It can take up to 30 minutes for Azure to create the application gateway. After it's created, you can view the following settings in the **Settings** section of the **Application gateway** page:
-
-- **appGatewayBackendPool**: Located on the **Backend pools** page. It specifies the required backend pool.
-- **appGatewayBackendHttpSettings**: Located on the **HTTP settings** page. It specifies that the application gateway uses port 80 and the HTTP protocol for communication.
-- **appGatewayHttpListener**: Located on the **Listeners page**. It specifies the default listener associated with **appGatewayBackendPool**.
-- **appGatewayFrontendIP**: Located on the **Frontend IP configurations** page. It assigns *myAGPublicIPAddress* to **appGatewayHttpListener**.
-- **rule1**: Located on the **Rules** page. It specifies the default routing rule that's associated with **appGatewayHttpListener**.
-
-## Test the application gateway connection to the backend vm's
-
-Add a rule to your VM security group, to allow HTTP or HTTPS traffic on TCP port 80 or TCP port 443 from anywhere.
-
-After you add the rule, your VM security group will have the following inbound rules.
-
-![image](https://user-images.githubusercontent.com/81341827/181082296-99f63936-2c82-4ebb-9372-d62d252d2b78.png)
-
-Copy and paste the Application Gateway public IP address or DNS Alias into the address bar of your browser.
-
-## You should be able to acces the file shares now
-
-![image](https://user-images.githubusercontent.com/81341827/181094021-bc6bdce1-f318-4b93-a69c-8959a26513d1.png)
 
 ## Clean up resources
 
