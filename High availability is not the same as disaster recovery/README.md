@@ -2,7 +2,7 @@
 
 ## Intro:
 
-This example scenarios are applicable to any industry that needs to deploy resilient Azure networking built for high availability and disaster recovery. In these scenarios, we look at a two region logical architecture layout for a classic Azure virtual network Hub & Spoke, with Express Route, S2S VPN, Azure Firewall and Azure Front Door.
+The scenarios in this example are applicable to any industry that needs to deploy resilient Azure networking built for high availability and disaster recovery. In these scenarios, we look at a multi-region logical architecture layout for a classic Azure virtual network Hub & Spoke, with Express Route, S2S VPN, Azure Firewall and Azure Front Door.
 
 When designing your Azure network to be resilient, you must understand your availability and disaster recovery requirements. How much downtime is acceptable? The amount of downtime is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the Network highly available and resilient to failuer?
 
