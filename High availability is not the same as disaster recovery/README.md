@@ -18,7 +18,7 @@ Architecting HA and DR into your network ensures your workloads are available an
 
 ## Architecture
 
-## HA & DR Virtual Network Hub & Spoke Express Route With and Azure Front Door
+## HA & DR Virtual Network Hub & Spoke Express Route and Azure Front Door
 
 ![image](https://user-images.githubusercontent.com/81341827/183797963-a862c0ee-4533-49d7-aad5-fdb08fbe3461.png)
 
