@@ -18,12 +18,13 @@ Architecting HA and DR into your network ensures your workloads are available an
 
 ## Architecture diagrams
 
-## HA & DR Virtual Network Hub & Spoke Express Route, Azure Firewall and Azure Front Door
+## Scenario 1
+### HA & DR Virtual Network Hub & Spoke Express Route, Azure Firewall and Azure Front Door
 
 ![image](https://user-images.githubusercontent.com/81341827/183797963-a862c0ee-4533-49d7-aad5-fdb08fbe3461.png)
 
-
-## HA & DR Virtual Network Hub & Spoke Azure Express Route, S2S VPN, Azure Firewall and Azure Front Door
+## Scenario 2
+### HA & DR Virtual Network Hub & Spoke Azure Express Route, S2S VPN, Azure Firewall and Azure Front Door
 
 ![image](https://user-images.githubusercontent.com/81341827/183798668-7cd4d1f6-8eb1-4f57-a778-8e688f669f30.png)
 
@@ -49,7 +50,7 @@ An Availability Zone in an Azure region is a combination of a fault domains and 
 For high availability, it's essential to maintain the redundancy of the ExpressRoute circuit and S2S VPN throughout the end-to-end network. In other words, you need to maintain redundancy within your on-premises network, and shouldn't compromise redundancy within your service provider network. Maintaining redundancy at the minimum implies avoiding single point of network failures. Having redundant power and cooling for the network devices will further improve the high availability.
 
 ### Configure a Site-to-Site VPN as a failover path for ExpressRoute
-You can configure a Site-to-Site VPN connection as a backup for ExpressRoute. This connection applies only to virtual networks linked to the Azure private peering path. There's no VPN-based failover solution for services accessible through Azure Microsoft peering. The ExpressRoute circuit is always the primary link. Data flows through the Site-to-Site VPN path only if the ExpressRoute circuit fails. To avoid asymmetrical routing, your local network configuration should also prefer the ExpressRoute circuit over the Site-to-Site VPN. You can prefer the ExpressRoute path by setting higher local preference for the routes received the ExpressRoute. 
+You can configure a Site-to-Site VPN connection as a backup for ExpressRoute this is shown in # scenario 2. This connection applies only to virtual networks linked to the Azure private peering path. There's no VPN-based failover solution for services accessible through Azure Microsoft peering. The ExpressRoute circuit is always the primary link. Data flows through the Site-to-Site VPN path only if the ExpressRoute circuit fails. To avoid asymmetrical routing, your local network configuration should also prefer the ExpressRoute circuit over the Site-to-Site VPN. You can prefer the ExpressRoute path by setting higher local preference for the routes received the ExpressRoute. 
 
 ### Regional HA - Azure Firewall
 
