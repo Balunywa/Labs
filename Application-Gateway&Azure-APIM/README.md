@@ -26,18 +26,37 @@ In this setup example all your APIs are managed without a Virtual Network. All t
 - Make sure that you are using the latest version of Azure PowerShell. See the installation instructions at Install Azure PowerShell.
 
 ## Use AZ-Cloud Shell for Certificate Generation and Export to KeyVault when using App Service Certificate
+# Fetch the secret from Azure Key Vault
+$secret = Get-AzKeyVaultSecret -VaultName 'certs-kv-one' -Name 'onemscont998bf559-e98d-45c5-93b1-41e5b827ea82/236a6618f3fc4eb4b592fbe02a0ebf7e'
 
-$secret = Get-AzKeyVaultSecret -VaultName YourKeyVaultName  -Name YourCertificateSecretName
+# Convert the secret value to plain text from SecureString
 $secretValue = $secret.SecretValue | ConvertFrom-SecureString -AsPlainText
-$pfxCertObject= New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @([Convert]::FromBase64String($secretValue),"",[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
-$pfxPassword = -join ((65..90) + (97..122) + (48..57) | Get-Random -Count 50 | % {[char]$_})
-$currentDirectory = (Get-Location -PSProvider FileSystem).ProviderPath
-[Environment]::CurrentDirectory = (Get-Location -PSProvider FileSystem).ProviderPath
-[io.file]::WriteAllBytes(".\appservicecertificate.pfx",$pfxCertObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12,$pfxPassword))
 
-Write-Host "Created an App Service Certificate copy at: $currentDirectory\appservicecertificate.pfx"
+# Create an X509Certificate2 object from the secret
+$pfxCertObject = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2 -ArgumentList @(
+    [Convert]::FromBase64String($secretValue), 
+    "", 
+    [System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable
+)
+
+# Generate a random PFX password
+$pfxPassword = -join ((65..90) + (97..122) + (48..57) | Get-Random -Count 50 | ForEach-Object { [char]$_ })
+
+# Define the current directory
+$currentDirectory = (Get-Location -PSProvider FileSystem).ProviderPath
+
+# Set the environment's current directory (this seems redundant and could potentially be removed)
+[Environment]::CurrentDirectory = $currentDirectory
+
+# Export the certificate as PFX and save to the current directory
+$pfxFilePath = Join-Path -Path $currentDirectory -ChildPath 'appservicecertificate.pfx'
+[io.file]::WriteAllBytes($pfxFilePath, $pfxCertObject.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $pfxPassword))
+
+# Output details to the user
+Write-Host "Created an App Service Certificate copy at: $pfxFilePath"
 Write-Warning "For security reasons, do not store the PFX password. Use it directly from the console as required."
 Write-Host "PFX password: $pfxPassword"
+
 
 ## Save the generated password to use when uploading the certificate to KeyVault, downlaod the certificate from AZ-Cloud-Shell
 ![image](https://user-images.githubusercontent.com/81341827/121402584-113cbc80-c928-11eb-99ef-c803ee5d8a86.png)
