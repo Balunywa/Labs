@@ -6,7 +6,7 @@ This guide delves into four primary DR strategies on Azure—Backup and Restore,
 
 ## DR Strategies
 
- The first step is to have well-defined requirements. This isn't just a nice-to-have; it's a must. You need to know what you're working with, what it's worth, and how it all translates to your RTO, RPO, and data retention policies. Here's a pro tip: Run an assessment to understand your inventory, the value of your assets, what needs to be permanently immutable versus what doesn't.
+The first step is to have well-defined requirements. This isn't just a nice-to-have; it's a must. You need to know what you're working with, what it's worth, and how it all translates to your RTO, RPO, and data retention policies. Here's a pro tip: Run an assessment to understand your inventory, the value of your assets, what needs to be permanently immutable versus what doesn't.
 
 What requires long retention policies? What doesn't? These decisions are critical because they have a direct impact on your overall strategy and costs.
 
